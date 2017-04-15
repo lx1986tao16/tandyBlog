@@ -12,7 +12,8 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Admin::class, function (Faker\Generator $faker) {
+    $date_time = time();
     static $password;
 
     return [
@@ -20,5 +21,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+        'created_at'    =>  $date_time,
+        'updated_at'    =>  $date_time,
     ];
 });

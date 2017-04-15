@@ -1,0 +1,1 @@
+<img src="{{ $user->gravatar('160') }}" alt="{{ $user->name }}" class="user-image">

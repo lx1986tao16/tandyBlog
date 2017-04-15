@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function(){
+    Route::get('signin', 'SignController@index')->name('admin_signin');
+    Route::post('signin', 'SignController@store')->name('admin_signin');
 });
+
+Route::group(['namespace' => 'Admin', 'middleware' => 'auth', 'prefix' => 'admin'], function () {
+    Route::get('/', 'HomeController@index')->name('admin_home');
+    Route::resource('article', 'ArticleController');
+});
+
+Route::get('/home', 'HomeController@index');
