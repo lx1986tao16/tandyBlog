@@ -9,6 +9,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Article Manage</li>
                 <li class="active">Post Article</li>
             </ol>
         </section>
@@ -21,25 +22,42 @@
                             <h3 class="box-title">Post Article</h3>
                         </div>
                         <form role="form" method="POST" action="{{ route('article.store') }}">
+                            {{ csrf_field() }}
+
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Article Title</label>
+                                    <label>Article Title</label>
                                     <input type="text" class="form-control" placeholder="Article Title">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Article Author</label>
+                                    <label>Article Author</label>
                                     <input type="text" class="form-control" placeholder="Article Author">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Article Cat</label>
-									<select class="form-control select2" style="width: 100%;">
-										<option selected="selected">NONE</option>
-										<option>Alaska</option>
-									</select>
+                                    <label>Article Source</label>
+                                    <input type="text" class="form-control" placeholder="Article Source">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Article Author</label>
-                                    <input type="text" class="form-control" placeholder="Article Author">
+                                    <label>Catepory Parent</label>
+                                    <select multiple class="form-control">
+                                        <option selected="selected" value="0">NONE</option>
+                                        @foreach($categories as $category)
+                                            @if($category->parent_id === 0)
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                @include('shared.select_tree', ['children' => $category->children])
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Article Tags</label>
+                                    <input type="text" class="form-control" placeholder="Article Tags">
+                                </div>
+                                <div class="form-group">
+                                    <label>Article Content</label>
+                                    <div id="mdeditor">
+                                        <textarea class="form-control" name="content" style="display:none;"></textarea>
+                                    </div>
                                 </div>
                             </div>
                             <div class="box-footer">

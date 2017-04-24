@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6039f8752257ad4a011270f3c5eeebe2",
-    "content-hash": "9bd47f750811fec11e1a37f507e39d5b",
+    "hash": "10f18e7736309019f7dc914da9a104d8",
+    "content-hash": "c6f63e9037201675ae6e637c6208aa7a",
     "packages": [
         {
             "name": "caouecs/laravel-lang",
@@ -148,6 +148,51 @@
             "time": "2015-11-06 14:35:42"
         },
         {
+            "name": "douyasi/laravel-editor-md",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/douyasi/laravel-editor-md.git",
+                "reference": "803ff212b9966a15ed623536c6b775f0d6eb4243"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/douyasi/laravel-editor-md/803ff212b9966a15ed623536c6b775f0d6eb4243.zip",
+                "reference": "803ff212b9966a15ed623536c6b775f0d6eb4243",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Douyasi\\Editor\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "raoyc",
+                    "email": "raoyc2009@gmail.com"
+                }
+            ],
+            "description": "editor.md for laravel",
+            "keywords": [
+                "douyasi",
+                "editor.md",
+                "laravel",
+                "markdown"
+            ],
+            "time": "2016-09-04 12:39:11"
+        },
+        {
             "name": "erusev/parsedown",
             "version": "1.6.2",
             "source": {
@@ -188,6 +233,68 @@
                 "parser"
             ],
             "time": "2017-03-29 16:04:15"
+        },
+        {
+            "name": "graham-campbell/markdown",
+            "version": "v7.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GrahamCampbell/Laravel-Markdown.git",
+                "reference": "507783993b40f4b118f201e8a8bec9e908b3ab1d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/GrahamCampbell/Laravel-Markdown/507783993b40f4b118f201e8a8bec9e908b3ab1d.zip",
+                "reference": "507783993b40f4b118f201e8a8bec9e908b3ab1d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "5.1.*|5.2.*|5.3.*|5.4.*",
+                "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*",
+                "illuminate/view": "5.1.*|5.2.*|5.3.*|5.4.*",
+                "league/commonmark": "^0.15",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "graham-campbell/testbench": "^3.1",
+                "league/commonmark-extras": "^0.1.2",
+                "mockery/mockery": "^0.9.4",
+                "phpunit/phpunit": "^4.8|^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "7.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GrahamCampbell\\Markdown\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "graham@alt-three.com"
+                }
+            ],
+            "description": "Markdown Is A CommonMark Wrapper For Laravel 5",
+            "keywords": [
+                "Graham Campbell",
+                "GrahamCampbell",
+                "Laravel Markdown",
+                "Laravel-Markdown",
+                "common mark",
+                "commonmark",
+                "framework",
+                "laravel",
+                "markdown"
+            ],
+            "time": "2017-01-01 13:30:44"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -278,16 +385,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.4.18",
+            "version": "v5.4.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "d15ded55b5e690199393ea93a57edcbae20d1ffc"
+                "reference": "02444b7450350db17a7607c8a52f7268ebdb0dad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/laravel/framework/d15ded55b5e690199393ea93a57edcbae20d1ffc.zip",
-                "reference": "d15ded55b5e690199393ea93a57edcbae20d1ffc",
+                "url": "https://files.phpcomposer.com/files/laravel/framework/02444b7450350db17a7607c8a52f7268ebdb0dad.zip",
+                "reference": "02444b7450350db17a7607c8a52f7268ebdb0dad",
                 "shasum": ""
             },
             "require": {
@@ -403,7 +510,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-04-10 19:27:41"
+            "time": "2017-04-16 13:33:34"
         },
         {
             "name": "laravel/tinker",
@@ -462,6 +569,75 @@
                 "psysh"
             ],
             "time": "2016-12-30 18:13:17"
+        },
+        {
+            "name": "league/commonmark",
+            "version": "0.15.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/commonmark.git",
+                "reference": "c8b43ee5821362216f8e9ac684f0f59de164edcc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/thephpleague/commonmark/c8b43ee5821362216f8e9ac684f0f59de164edcc.zip",
+                "reference": "c8b43ee5821362216f8e9ac684f0f59de164edcc",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.4.8"
+            },
+            "replace": {
+                "colinodell/commonmark-php": "*"
+            },
+            "require-dev": {
+                "cebe/markdown": "~1.0",
+                "erusev/parsedown": "~1.0",
+                "jgm/commonmark": "0.27",
+                "michelf/php-markdown": "~1.4",
+                "mikehaertl/php-shellcommand": "~1.2.0",
+                "phpunit/phpunit": "~4.3|~5.0",
+                "scrutinizer/ocular": "~1.1",
+                "symfony/finder": "~2.3|~3.0"
+            },
+            "suggest": {
+                "league/commonmark-extras": "Library of useful extensions including smart punctuation"
+            },
+            "bin": [
+                "bin/commonmark"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.16-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\CommonMark\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Colin O'Dell",
+                    "email": "colinodell@gmail.com",
+                    "homepage": "https://www.colinodell.com",
+                    "role": "Lead Developer"
+                }
+            ],
+            "description": "Markdown parser for PHP based on the CommonMark spec",
+            "homepage": "https://github.com/thephpleague/commonmark",
+            "keywords": [
+                "commonmark",
+                "markdown",
+                "parser"
+            ],
+            "time": "2016-12-19 00:11:43"
         },
         {
             "name": "league/flysystem",
@@ -3379,7 +3555,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "douyasi/laravel-editor-md": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
