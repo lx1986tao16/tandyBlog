@@ -21,7 +21,6 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth', 'prefix' => 'admin
     Route::resource('category', 'CategoryController');
     Route::resource('tags', 'TagsController');
     Route::resource('article', 'ArticleController');
-    Route::get('/tags', 'ArticleController@tagsAjax');
 });
 
 Route::get('/home', 'HomeController@index');
