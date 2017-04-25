@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Article Tags</label>
-                                    <input type="text" class="form-control" placeholder="Article Tags">
+                                    <input type="text" id="tags" class="form-control" placeholder="Article Tags">
                                 </div>
                                 <div class="form-group">
                                     <label>Article Content</label>
@@ -69,4 +69,10 @@
             </div>
         </section>
     </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#tags").
+        });
+    </script>
 @endsection

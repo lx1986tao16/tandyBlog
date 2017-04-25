@@ -16,7 +16,8 @@ class ArticleController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('admin.articles.create', compact('categories'));
+        $tags = Tags::all();
+        return view('admin.articles.create', compact('categories', 'tags'));
     }
 
     public function store(Request $request)
