@@ -178,6 +178,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         'GrahamCampbell\Markdown\MarkdownServiceProvider',
         'Douyasi\Editor\EditorServiceProvider',
+        //Laravel Tagging
+        Conner\Tagging\Providers\TaggingServiceProvider::class,
 
     ],
 

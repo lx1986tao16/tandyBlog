@@ -7,10 +7,11 @@
     "require": {
         "php": ">=5.6.4",
         "caouecs/laravel-lang": "~3.0",
+        "douyasi/laravel-editor-md": "dev-master",
+        "graham-campbell/markdown": "^7.0",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
-        "graham-campbell/markdown": "^7.0",
-        "douyasi/laravel-editor-md": "dev-master"
+        "rtconner/laravel-tagging": "~2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
