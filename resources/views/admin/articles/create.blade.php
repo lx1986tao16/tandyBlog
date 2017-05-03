@@ -1,4 +1,8 @@
 @extends('admin.layouts.default')
+@section('css')
+<link rel="stylesheet" href="{{ asset('assets/plugins/tagsinput/bootstrap-tagsinput.css') }}">
+{!! editor_css() !!}
+@endsection
 
 @section('content')
     <div class="content-wrapper">
@@ -51,7 +55,9 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Article Tags</label>
-                                    <input type="text" id="tags" class="form-control" placeholder="Article Tags">
+                                    <span class="form-group">
+                                        <input type="text" id="tags" class="form-control" data-role="tagsinput" placeholder="Article Tags">
+                                    </span>
                                 </div>
                                 <div class="form-group">
                                     <label>Article Content</label>
@@ -70,9 +76,7 @@
         </section>
     </div>
 
-    <script>
-
-    </script>
+    <script src="{{ asset('assets/plugins/tagsinput/bootstrap-tagsinput.js') }}"></script>
 
     {!! editor_js() !!}
     {!! editor_config('mdeditor') !!}
