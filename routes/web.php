@@ -18,6 +18,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function(){
 
 Route::group(['namespace' => 'Admin', 'middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('/', 'HomeController@index')->name('admin_home');
+    Route::get('get_tags', 'TagsController@getTags')->name('get_tags');
     Route::resource('category', 'CategoryController');
     Route::resource('tags', 'TagsController');
     Route::resource('article', 'ArticleController');

@@ -1,6 +1,7 @@
 @extends('admin.layouts.default')
 @section('css')
 <link rel="stylesheet" href="{{ asset('assets/plugins/tagsinput/bootstrap-tagsinput.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/plugins/tagsinput/bootstrap-tagsinput-typeahead.css') }}">
 {!! editor_css() !!}
 @endsection
 
@@ -56,7 +57,7 @@
                                 <div class="form-group">
                                     <label>Article Tags</label>
                                     <span class="form-group">
-                                        <input type="text" id="tags" class="form-control" data-role="tagsinput" placeholder="Article Tags">
+                                        <input type="text" id="tags" class="form-control" placeholder="Article Tags">
                                     </span>
                                 </div>
                                 <div class="form-group">
@@ -77,6 +78,29 @@
     </div>
 
     <script src="{{ asset('assets/plugins/tagsinput/bootstrap-tagsinput.js') }}"></script>
+    <script src="{{ asset('assets/plugins/tagsinput/typeahead.jquery.js') }}"></script>
+    <script src="{{ asset('assets/plugins/tagsinput/typeahead.bundle.js') }}"></script>
+    <script src="{{ asset('assets/plugins/tagsinput/angular.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/tagsinput/bootstrap-tagsinput-angular.min.js') }}"></script>
+    <script>
+        var tags = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            prefetch: '{{ route("get_tags") }}'
+        });
+        tags.initialize();
+
+        $("#tags").tagsinput({
+            itemValue: 'value',
+            itemText: 'text',
+            typeaheadjs: {
+                name: 'tags',
+                displayKey: 'text',
+                source: tags.ttAdapter(),
+            },
+        });
+    
+    </script>
 
     {!! editor_js() !!}
     {!! editor_config('mdeditor') !!}

@@ -42,4 +42,18 @@ class TagsController extends Controller
         session()->flash('success', '删除tag成功');
         return redirect()->back();
     }
+
+    public function getTags()
+    {
+        $tags = Tags::all();
+        $tags_data = [];
+        foreach ($tags as $tag) {
+            array_push($tags_data, [
+                "value" => $tag->id,
+                "text" => $tag->name,
+            ]);
+        }
+
+        echo json_encode($tags_data);
+    }
 }
