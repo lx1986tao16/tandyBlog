@@ -20,7 +20,7 @@
 <!-- Daterange picker -->
 <link rel="stylesheet" href="{{ asset('assets/plugins/daterangepicker/daterangepicker.css') }}">
 <!-- bootstrap wysihtml5 - text editor -->
-<link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
+{{-- <link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">  --}}
 
 {!! editor_css() !!}
 
@@ -30,5 +30,4 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
-
-{!! editor_js() !!}
+<script src="{{ asset('assets/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>

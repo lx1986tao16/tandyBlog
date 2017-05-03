@@ -51,10 +51,6 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Article Tags</label>
-                                    <div class="bootstrap-tagsinput">
-                                        <span class="tag label label-success">Sydney<span data-role="remove"></span></span>
-
-                                    </div>
                                     <input type="text" id="tags" class="form-control" placeholder="Article Tags">
                                 </div>
                                 <div class="form-group">
@@ -75,19 +71,9 @@
     </div>
 
     <script>
-        $(document).ready(function(){
-            $("#tags").onChange(function(){
-                var tagsInput = $(this).val();
-                var tags = [
-                    @foreach($tags as $tag)
-                    {{$tag->name}},
-                    @endforeach
-                ];
 
-                if ($.inArray(tagsInput, )){
-                    tagsInput =
-                }
-            });
-        });
     </script>
+
+    {!! editor_js() !!}
+    {!! editor_config('mdeditor') !!}
 @endsection
