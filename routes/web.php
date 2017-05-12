@@ -10,18 +10,23 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/home', 'HomeController@index');
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function(){
     Route::get('signin', 'SignController@index')->name('admin_signin');
     Route::post('signin', 'SignController@store')->name('admin_signin');
 });
 
+Auth::routes();
+
 Route::group(['namespace' => 'Admin', 'middleware' => 'auth', 'prefix' => 'admin'], function () {
-    Route::get('/', 'HomeController@index')->name('admin_home');
+    Route::get('/', 'DashboardController@index')->name('admin_home');
     Route::get('get_tags', 'TagsController@getTags')->name('get_tags');
     Route::resource('category', 'CategoryController');
     Route::resource('tags', 'TagsController');
     Route::resource('article', 'ArticleController');
 });
-
-Route::get('/home', 'HomeController@index');

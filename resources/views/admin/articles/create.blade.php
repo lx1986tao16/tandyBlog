@@ -26,25 +26,28 @@
                         <div class="box-header with-border">
                             <h3 class="box-title">Post Article</h3>
                         </div>
+                        
+                        @include('shared.errors')
+                        
                         <form role="form" method="POST" action="{{ route('article.store') }}">
                             {{ csrf_field() }}
 
                             <div class="box-body">
                                 <div class="form-group">
                                     <label>Article Title</label>
-                                    <input type="text" class="form-control" placeholder="Article Title">
+                                    <input type="text" name="title" class="form-control" placeholder="Article Title">
                                 </div>
                                 <div class="form-group">
                                     <label>Article Author</label>
-                                    <input type="text" class="form-control" placeholder="Article Author">
+                                    <input type="text" name="author" class="form-control" placeholder="Article Author">
                                 </div>
                                 <div class="form-group">
                                     <label>Article Source</label>
-                                    <input type="text" class="form-control" placeholder="Article Source">
+                                    <input type="text" name="source" class="form-control" placeholder="Article Source">
                                 </div>
                                 <div class="form-group">
                                     <label>Catepory Parent</label>
-                                    <select multiple class="form-control">
+                                    <select multiple class="form-control" name="category">
                                         <option selected="selected" value="0">NONE</option>
                                         @foreach($categories as $category)
                                             @if($category->parent_id === 0)
@@ -57,7 +60,7 @@
                                 <div class="form-group">
                                     <label>Article Tags</label>
                                     <span class="form-group">
-                                        <input type="text" id="tags" class="form-control" placeholder="Article Tags">
+                                        <input type="text" name="tags" id="tags" class="form-control" placeholder="Article Tags">
                                     </span>
                                 </div>
                                 <div class="form-group">
@@ -83,12 +86,14 @@
     <script src="{{ asset('assets/plugins/tagsinput/angular.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/tagsinput/bootstrap-tagsinput-angular.min.js') }}"></script>
     <script>
+        "use strict";
         var tags = new Bloodhound({
             datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
             queryTokenizer: Bloodhound.tokenizers.whitespace,
             prefetch: '{{ route("get_tags") }}'
         });
         tags.initialize();
+        console.log(tags.initialize());
 
         $("#tags").tagsinput({
             itemValue: 'value',
