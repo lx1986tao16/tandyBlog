@@ -144,6 +144,8 @@ return [
         'time'                  => '时间',
         'available'             => '可用的',
         'size'                  => '大小',
+        'author'                => '作者',
+        'tags'                  => '标签'
     ],
 
 ];
