@@ -181,6 +181,8 @@ return [
         //Laravel Tagging
         Conner\Tagging\Providers\TaggingServiceProvider::class,
 
+        //l5-repository
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,
     ],
 
     /*
