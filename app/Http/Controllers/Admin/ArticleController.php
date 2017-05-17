@@ -29,14 +29,9 @@ class ArticleController extends Controller
         return view('admin.articles.create', ['categories' => $categories]);
     }
 
-    public function store(Request $request)
+    public function store(ArticleRequest $request)
     {
-        // $this->validate($request, [
-        //     'title'     => 'required|max:255',
-        //     'author'    => 'required|max:255',
-        //     'tags'      => 'required',
-        //     'content'   => 'required', 
-        // ]);
+        
 
         
         
