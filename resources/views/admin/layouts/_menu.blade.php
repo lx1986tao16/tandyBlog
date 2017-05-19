@@ -11,7 +11,7 @@
         </span>
     </a>
     <ul class="treeview-menu">
-        <li><a href="#"><i class="fa fa-list"></i> Article List</a></li>
+        <li><a href="{{ route('article.index') }}"><i class="fa fa-list"></i> Article List</a></li>
         <li><a href="{{ route('article.create') }}"><i class="fa fa-edit"></i> Post Article</a></li>
     </ul>
 </li>

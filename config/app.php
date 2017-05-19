@@ -176,13 +176,12 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        'GrahamCampbell\Markdown\MarkdownServiceProvider',
         'Douyasi\Editor\EditorServiceProvider',
+        
         //Laravel Tagging
         Conner\Tagging\Providers\TaggingServiceProvider::class,
 
-        //l5-repository
-        Prettus\Repository\Providers\RepositoryServiceProvider::class,
+        App\Providers\BackendServiceProvider::class
     ],
 
     /*
@@ -231,8 +230,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Markdown' => 'GrahamCampbell\Markdown\Facades\Markdown',
-
     ],
 
 ];

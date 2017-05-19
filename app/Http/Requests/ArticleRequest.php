@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ArticelRequest extends FormRequest
+class ArticleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,9 @@ class ArticelRequest extends FormRequest
     public function rules()
     {
         $rules['title'] = 'required';
-        $rules['author'] = 'required';
-        $rules['tags'] = 'required';
+        $rules['tag_id'] = 'required';
         $rules['content'] = 'required';
-        $rules['category'] = 'min:0';
+        $rules['category_id'] = 'min:0';
 
         if (request()->isMethod('PUT') || request()->isMethod('PATH')) {
             $rules[id] = 'numeric|required';

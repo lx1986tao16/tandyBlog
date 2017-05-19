@@ -1,11 +1,11 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Conner\Tagging\Taggable;
 use Illuminate\Database\Eloquent\Model;
 
-class Tags extends Model
+class Tag extends Model
 {
     use Taggable;
 

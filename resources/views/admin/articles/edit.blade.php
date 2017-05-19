@@ -35,21 +35,21 @@
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <label>Article Title</label>
-                                    <input type="text" name="title" class="form-control" placeholder="Article Title">
+                                    <input type="text" name="title" class="form-control" placeholder="Article Title" value="{{ $article->title }}">
                                 </div>
                                 <div class="form-group">
                                     <label>Article Author</label>
-                                    <input type="text" name="author" class="form-control" placeholder="Article Author">
+                                    <input type="text" name="author" class="form-control" placeholder="Article Author" value="{{ $article->author }}">
                                 </div>
                                 <div class="form-group">
                                     <label>Article Source</label>
-                                    <input type="text" name="source" class="form-control" placeholder="Article Source">
+                                    <input type="text" name="source" class="form-control" placeholder="Article Source" value="{{ $article->source }}">
                                 </div>
                                 <div class="form-group">
                                     <label>Catepory Parent</label>
-                                    <select multiple class="form-control" name="category_id">
-                                        <option selected="selected" value="0">NONE</option>
-                                        @foreach($categories as $category)
+                                    <select multiple class="form-control" name="category_id" id="category_id">
+                                        <option value="0">NONE</option>
+                                        @foreach($article->categories as $category)
                                             @if($category->parent_id === 0)
                                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                 @include('shared.select_tree', ['children' => $category->children])
@@ -94,7 +94,8 @@
         });
         tags.initialize();
 
-        $("#tags").tagsinput({
+        var tags_input = $("#tags");
+        tags_input.tagsinput({
             itemValue: 'value',
             itemText: 'text',
             typeaheadjs: {
@@ -103,7 +104,20 @@
                 source: tags.ttAdapter(),
             },
         });
-    
+
+        var data = {!! $article->tags !!};
+        $.each(data, function(){
+            var value = this.id;
+            var text = this.name;
+            console.log(this.name);
+            tags_input.tagsinput('add', {'value': value, 'text': text});
+        });
+
+        $("#category_id option").each(function(){
+            if($(this).val() == {{ $article->category_id }}){
+                $(this).attr('selected', 'selected');
+            }
+        });
     </script>
 
     {!! editor_js() !!}
