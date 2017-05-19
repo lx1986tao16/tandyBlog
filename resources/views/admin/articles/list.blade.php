@@ -32,6 +32,7 @@
                         </div>
                     </div>
                     <div class="box-body">
+                        @include('shared.messages')
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                                 <tr>

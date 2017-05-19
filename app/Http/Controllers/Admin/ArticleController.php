@@ -8,6 +8,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
+use League\HTMLToMarkdown\HtmlConverter;
 use Parsedown;
 
 class ArticleController extends Controller
@@ -70,6 +71,42 @@ class ArticleController extends Controller
 
         $article->tags = json_encode($tags_data);
 
+        $converter = new HtmlConverter();
+        $content = $converter->convert($article->content);
+        $article->content = $content;
+
         return view('admin.articles.edit', compact('article'));
+    }
+
+    public function update($id, ArticleRequest $request)
+    {
+        $article = Article::findOrFail($id);
+
+        $Parsedown = new Parsedown();
+        $data = [];
+        $data = [
+            'title' => $request->title,
+            'author' => $request->author,
+            'source' => $request->source,
+            'category_id' => $request->category_id,
+            'tag_id' => $request->tag_id,
+            'content' => $Parsedown->text($request->content)
+        ];
+
+        $article->update($data);
+
+        session()->flash('success', "更新成功");
+
+        return redirect()->route('article.index');
+    }
+
+    public function destroy($id)
+    {
+        $article = Article::findOrFail($id);
+        $article->delete();
+
+        session()->flash('success', '删除成功');
+
+        return redirect()->back();
     }
 }

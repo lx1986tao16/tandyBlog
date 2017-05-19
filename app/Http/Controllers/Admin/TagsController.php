@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Tags;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -11,7 +11,7 @@ class TagsController extends Controller
 
     public function index()
     {
-        $tags = Tags::all();
+        $tags = Tag::all();
         return view('admin.tags.list', compact('tags'));
     }
 
@@ -26,7 +26,7 @@ class TagsController extends Controller
             'name'  =>  'required|max:255',
         ]);
 
-        Tags::create([
+        Tag::create([
             'name' => $request->name,
         ]);
 
@@ -36,7 +36,7 @@ class TagsController extends Controller
 
     public function destroy($id)
     {
-        $tag = Tags::findOrFail($id);
+        $tag = Tag::findOrFail($id);
         $tag->delete();
 
         session()->flash('success', '删除tag成功');
@@ -45,7 +45,7 @@ class TagsController extends Controller
 
     public function getTags()
     {
-        $tags = Tags::all();
+        $tags = Tag::all();
         $tags_data = [];
         foreach ($tags as $tag) {
             array_push($tags_data, [

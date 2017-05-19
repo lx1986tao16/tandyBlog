@@ -103,7 +103,6 @@
                 source: tags.ttAdapter(),
             },
         });
-    
     </script>
 
     {!! editor_js() !!}

@@ -31,7 +31,8 @@
                             @include('shared.messages')
                             @include('shared.errors')
                             
-                            <form role="form" method="POST" action="{{ route('article.store') }}">
+                            <form role="form" method="POST" action="{{ route('article.update', $article->id) }}">
+                                {{ method_field('PATCH') }}
                                 {{ csrf_field() }}
                                 <div class="form-group">
                                     <label>Article Title</label>
@@ -66,7 +67,7 @@
                                 <div class="form-group">
                                     <label>Article Content</label>
                                     <div id="mdeditor">
-                                        <textarea class="form-control" name="content" style="display:none;"></textarea>
+                                        <textarea class="form-control" name="content" style="display:none;">{{ $article->content }}</textarea>
                                     </div>
                                 </div>
                                 <div class="box-footer">
