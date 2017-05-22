@@ -26,7 +26,7 @@
                                 <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
 
                                 <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                    <button type="s·ubmit" class="btn btn-default"><i class="fa fa-search"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -60,11 +60,17 @@
                                     <td>{{ $article->category }}</td>
                                     <td>{{ $article->hits }}</td>
                                     <td>
-                                        @if($article->is_publish == 1)
-                                        <span class="label label-success">Publish</span>
-                                        @else
-                                        <span class="label label-danger">No Publish</span>
-                                        @endif
+                                        <form method="post" action="{{ route('update_publish', $article->id) }}">
+                                            {{ method_field('PATCH') }}
+                                            {{ csrf_field() }}
+                                            @if($article->is_publish == 1)
+                                            <input type="text" value="0" name="publish" hidden>
+                                            <button type="submit" class="btn btn-block btn-success btn-xs">Publish</button>
+                                            @else
+                                            <input type="text" value="1" name="publish" hidden>
+                                            <button type="submit" class="btn btn-block btn-danger btn-xs">No Publish</button>
+                                            @endif
+                                            </form>
                                     </td>
                                     <td>{{ strstr($article->created_at, " ", true) }}</td>
                                     <td>{{ strstr($article->updated_at, " ", true) }}</td>

@@ -177,9 +177,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         'Douyasi\Editor\EditorServiceProvider',
-        
-        //Laravel Tagging
-        Conner\Tagging\Providers\TaggingServiceProvider::class,
 
         App\Providers\BackendServiceProvider::class
     ],

@@ -54,6 +54,16 @@ class ArticleController extends Controller
         return redirect()->back();
     }
 
+    public function update_publish($id, Request $request)
+    {
+        $article = Article::findOrFail($id);
+        $article->is_publish = $request->publish;
+        $article->update();
+
+        return redirect()->back();
+    }
+
+
     public function edit($id)
     {
         $article = Article::findOrFail($id);

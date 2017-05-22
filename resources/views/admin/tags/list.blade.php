@@ -46,10 +46,14 @@
                             <td>{{ $tag->name }}</td>
                             <td>{{ $tag->created_at }}</td>
                             <td>
-                                <form action="{{ route('tags.destroy', $tag->id) }}" method="POST">
+                                <form action="{{ route('tags.edit', $tag->id) }}" style="display: inline;">
+                                    {{ csrf_field() }}
+                                    <button type="submit" class="btn btn-warning btn-xs">Edit</button>
+                                </form>
+                                <form action="{{ route('tags.destroy', $tag->id) }}" method="POST" style="display: inline;">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
-                                    <button type="submit" class="btn btn-danger btn-xs">删除</button>
+                                    <button type="submit" class="btn btn-danger btn-xs">Delete</button>
                                 </form>
                             </td>
                         </tr>

@@ -29,4 +29,5 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth', 'prefix' => 'admin
     Route::resource('category', 'CategoryController');
     Route::resource('tags', 'TagsController');
     Route::resource('article', 'ArticleController');
+    Route::patch('update_publish/{id}', 'ArticleController@update_publish')->name('update_publish');
 });
