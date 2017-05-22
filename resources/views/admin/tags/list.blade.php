@@ -33,31 +33,35 @@
                         </div>
                     </div>
                     <div class="box-body table-responsive no-padding">
-                        <table class="table table-hover">
-                        <tr>
-                            <th>#</th>
-                            <th>Tags</th>
-                            <th>CreateTime</th>
-                            <th>Operation</th>
-                        </tr>
-                        @foreach($tags as $tag)
-                        <tr>
-                            <td>{{ $tag->id }}</td>
-                            <td>{{ $tag->name }}</td>
-                            <td>{{ $tag->created_at }}</td>
-                            <td>
-                                <form action="{{ route('tags.edit', $tag->id) }}" style="display: inline;">
-                                    {{ csrf_field() }}
-                                    <button type="submit" class="btn btn-warning btn-xs">Edit</button>
-                                </form>
-                                <form action="{{ route('tags.destroy', $tag->id) }}" method="POST" style="display: inline;">
-                                    {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}
-                                    <button type="submit" class="btn btn-danger btn-xs">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
-                        @endforeach
+                        <table id="tags_list" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Tags</th>
+                                <th>CreateTime</th>
+                                <th>Operation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($tags as $tag)
+                            <tr>
+                                <td>{{ $tag->id }}</td>
+                                <td>{{ $tag->name }}</td>
+                                <td>{{ $tag->created_at }}</td>
+                                <td>
+                                    <form action="{{ route('tags.edit', $tag->id) }}" style="display: inline;">
+                                        {{ csrf_field() }}
+                                        <button type="submit" class="btn btn-warning btn-xs">Edit</button>
+                                    </form>
+                                    <form action="{{ route('tags.destroy', $tag->id) }}" method="POST" style="display: inline;">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <button type="submit" class="btn btn-danger btn-xs">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
                         </table>
                     </div>
                 </div>
@@ -66,4 +70,20 @@
     </section>
 </div>
 
+<!-- DataTables -->
+<script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+
+<script>
+    $(function() {
+        $('#tags_list').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false
+        });
+    });
+</script>
 @endsection

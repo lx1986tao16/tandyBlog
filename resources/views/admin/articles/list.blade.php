@@ -33,7 +33,7 @@
                     </div>
                     <div class="box-body">
                         @include('shared.messages')
-                        <table id="example2" class="table table-bordered table-hover">
+                        <table id="aritcle_list" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -102,7 +102,7 @@
 
 <script>
     $(function () {
-        $('#example2').DataTable({
+        $('#aritcle_list').DataTable({
             "paging": true,
             "lengthChange": false,
             "searching": false,
