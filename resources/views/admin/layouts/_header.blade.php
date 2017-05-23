@@ -244,7 +244,11 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <form action="{{ route('admin_signout') }}" method="POST">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+                    <button class="btn btn-default btn-flat" type="submit" name="button">Sign out</button>
+                  </form>
                 </div>
               </li>
             </ul>

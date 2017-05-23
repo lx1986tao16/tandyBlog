@@ -19,6 +19,7 @@ Route::get('/home', 'HomeController@index');
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function(){
     Route::get('signin', 'SignController@index')->name('admin_signin');
     Route::post('signin', 'SignController@store')->name('admin_signin');
+    Route::delete('signout', 'SignController@destroy')->name('admin_signout');
 });
 
 Auth::routes();

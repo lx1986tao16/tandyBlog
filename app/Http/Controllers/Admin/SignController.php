@@ -26,4 +26,13 @@ class SignController extends Controller
 
         return redirect()->back()->withErrors(['用户名和密码不匹配！']);
     }
+
+    public function destroy()
+    {
+        Auth::logout();
+
+        session()->flash('success', '退出登陆');
+
+        return redirect()->route('admin_signin');
+    }
 }
