@@ -22,26 +22,25 @@
                             <h3 class="box-title">Post Tags</h3>
                         </div>
 
-                        @include('shared.messages')
-                        @include('shared.errors')
+                        <div class="box-body">
+                            @include('shared.messages')
+                            @include('shared.errors')
 
-                        <form role="form" method="POST" action="{{ route('tags.store') }}">
-                            {{ csrf_field() }}
-
-                            <div class="box-body">
-                                <div class="form-group">
-                                    <label>Tags Name</label>
-                                    <input type="text" name="name" class="form-control" placeholder="Tags Name">
+                            <form role="form" method="POST" action="{{ route('tags.store') }}">
+                                {{ csrf_field() }}
+                                    <div class="form-group">
+                                        <label>Tags Name</label>
+                                        <input type="text" name="name" class="form-control" placeholder="Tags Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Tags Describe</label>
+                                        <input type="text" name="describe" class="form-control" placeholder="Tags Describe">
+                                    </div>
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary fa fa-floppy-o"> Save</button>
                                 </div>
-                                <div class="form-group">
-                                    <label>Tags Describe</label>
-                                    <input type="text" name="describe" class="form-control" placeholder="Tags Describe">
-                                </div>
-                            </div>
-                            <div class="box-footer">
-                                <button type="submit" class="btn btn-primary fa fa-floppy-o"> Save</button>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

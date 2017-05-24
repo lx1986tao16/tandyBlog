@@ -22,38 +22,37 @@
                             <h3 class="box-title">Post Catepory</h3>
                         </div>
 
-                        @include('shared.messages')
-                        @include('shared.errors')
+                        <div class="box-body">
+                            @include('shared.messages')
+                            @include('shared.errors')
 
-                        <form role="form" method="POST" action="{{ route('category.store') }}">
-                            {{ csrf_field() }}
-
-                            <div class="box-body">
-                                <div class="form-group">
-                                    <label>Catepory Name</label>
-                                    <input type="text" name="name" class="form-control" placeholder="Catepory Name">
+                            <form role="form" method="POST" action="{{ route('category.store') }}">
+                                {{ csrf_field() }}
+                                    <div class="form-group">
+                                        <label>Catepory Name</label>
+                                        <input type="text" name="name" class="form-control" placeholder="Catepory Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Catepory Parent</label>
+                                        <select multiple class="form-control" name="parent_id">
+                                            <option selected="selected" value="0">NONE</option>
+                                            @foreach($categories as $category)
+                                                @if($category->parent_id === 0)
+                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                    @include('shared.select_tree', ['children' => $category->children])
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Catepory Describe</label>
+                                        <input type="text" name="describe" class="form-control" placeholder="Category Describe">
+                                    </div>
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary fa fa-save"> Save</button>
                                 </div>
-                                <div class="form-group">
-                                    <label>Catepory Parent</label>
-									<select multiple class="form-control" name="parent_id">
-										<option selected="selected" value="0">NONE</option>
-                                        @foreach($categories as $category)
-                                            @if($category->parent_id === 0)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                                @include('shared.select_tree', ['children' => $category->children])
-                                            @endif
-                                        @endforeach
-									</select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Catepory Describe</label>
-                                    <input type="text" name="describe" class="form-control" placeholder="Category Describe">
-                                </div>
-                            </div>
-                            <div class="box-footer">
-                                <button type="submit" class="btn btn-primary fa fa-save"> Save</button>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

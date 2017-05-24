@@ -10,11 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function(){
     Route::get('signin', 'SignController@index')->name('admin_signin');

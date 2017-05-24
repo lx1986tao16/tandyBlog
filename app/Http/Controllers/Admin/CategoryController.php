@@ -23,7 +23,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name'  => 'required|max:50',
+            'name'  => 'required|max:50|unique:categories',
         ]);
 
         Category::create([
