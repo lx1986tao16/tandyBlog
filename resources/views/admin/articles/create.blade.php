@@ -86,7 +86,8 @@
     <script src="{{ asset('assets/plugins/tagsinput/angular.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/tagsinput/bootstrap-tagsinput-angular.min.js') }}"></script>
     <script>
-        "use strict";
+        "use strict"
+        
         var tags = new Bloodhound({
             datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
             queryTokenizer: Bloodhound.tokenizers.whitespace,

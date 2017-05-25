@@ -110,7 +110,6 @@
         $.each(data, function(){
             var value = this.id;
             var text = this.name;
-            console.log(this.name);
             tags_input.tagsinput('add', {'value': value, 'text': text});
         });
 

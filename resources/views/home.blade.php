@@ -299,29 +299,10 @@
                 </div><!--/.col-md-4.col-lg-4.md-pull-right-->
 
                 <div class="bg-base col-md-8 col-lg-8">
-                    
                     <h2 class="section-title ribbon ribbon-highlight"><span>What's Hot</span></h2>
-
                     <div class="entries">
-
                         <article class="entry style-large type-post">
-
-                            <figure class="entry-thumbnail hidden-xs">
-
-                                <a href="single.html">
-                                    <!-- to disable lazy loading, remove data-src and data-src-retina -->
-                                    <img src="../img/placeholder.gif" data-src="http://placehold.it/680x452" data-src-retina="http://placehold.it/1024x680" width="680" height="452" alt="">
-
-                                    <!--fallback for no javascript browsers-->
-                                    <noscript>
-                                        <img src="http://placehold.it/680x452" alt="">
-                                    </noscript>
-                                </a>
-
-                            </figure>
-
                             <header class="entry-header">
-
                                 <h3 class="entry-title">
                                     <a href="single.html" rel="bookmark">The mosts views and discussed posts on this time goes here.</a>
                                 </h3>
@@ -338,25 +319,7 @@
                         </article>
 
                         <article class="entry style-large type-post">
-
-                            <figure class="entry-thumbnail hidden-xs">
-
-                                <a href="single.html">
-
-                                    <!-- to disable lazy loading, remove data-src and data-src-retina -->
-                                    <img src="../img/placeholder.gif" data-src="http://placehold.it/680x452" data-src-retina="http://placehold.it/1024x680" width="680" height="452" alt="">
-
-                                    <!--fallback for no javascript browsers-->
-                                    <noscript>
-                                        <img src="http://placehold.it/680x452" alt="">
-                                    </noscript>
-
-                                </a>
-
-                            </figure>
-
                             <header class="entry-header">
-
                                 <h3 class="entry-title">
                                     <a href="single.html" rel="bookmark">Excepteur sint occaecat cupidatat non proident.</a>
                                 </h3>
@@ -365,33 +328,12 @@
                                     <span class="entry-date"><a href="blog.html">on <time datetime="2013-07-04T23:26:34+00:00">September 20 2013</time></a></span>
                                     <span class="category">In <a href="blog.html">Entertaintment</a></span>
                                 </div>
-
                             </header>
-
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
                         </article>
                         
                         <article class="entry style-large type-post">
-
-                            <figure class="entry-thumbnail hidden-xs">
-
-                                <a href="single.html">
-
-                                    <!-- to disable lazy loading, remove data-src and data-src-retina -->
-                                    <img src="../img/placeholder.gif" data-src="http://placehold.it/680x452" data-src-retina="http://placehold.it/1024x680" width="680" height="452" alt="">
-
-                                    <!--fallback for no javascript browsers-->
-                                    <noscript>
-                                        <img src="http://placehold.it/680x452" alt="">
-                                    </noscript>
-                                    
-                                </a>
-
-                            </figure>
-
                             <header class="entry-header">
-
                                 <h3 class="entry-title">
                                     <a href="single.html" rel="bookmark">Excepteur sint occaecat cupidatat non proident.</a>
                                 </h3>
@@ -400,13 +342,9 @@
                                     <span class="entry-date"><a href="blog.html">on <time datetime="2013-07-04T23:26:34+00:00">September 20 2013</time></a></span>
                                     <span class="category">In <a href="blog.html">Entertaintment</a></span>
                                 </div>
-
                             </header>
-
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
                         </article>
-                        
                     </div>
 
                 </div><!--/.bg-base.col-md-8.col-lg-8-->

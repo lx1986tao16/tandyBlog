@@ -145,7 +145,7 @@ return [
         'available'             => '可用的',
         'size'                  => '大小',
         'author'                => '作者',
-        'tags'                  => '标签'
+        'tag_id'                => '标签'
     ],
 
 ];

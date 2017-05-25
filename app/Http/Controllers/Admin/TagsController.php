@@ -70,6 +70,6 @@ class TagsController extends Controller
             ]);
         }
 
-        echo json_encode($tags_data);
+        return response()->json($tags_data);
     }
 }
