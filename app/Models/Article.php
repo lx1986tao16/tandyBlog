@@ -12,5 +12,9 @@ class Article extends Model
         'title', 'tag_id', 'category_id', 'content', 'hits', 'is_publish', 'author', 'source'
     ];
 
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category', 'category_id');
+    }
     
 }
