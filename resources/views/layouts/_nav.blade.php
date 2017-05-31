@@ -41,7 +41,7 @@
                     <span class="toggle glyphicon glyphicon-align-justify"></span>
                 </a>
                 <div class="row subnav-wrapper">
-                    @foreach($data['categories'] as $category)
+                    @foreach($categories as $category)
                     @if($category->parent_id == 0)
                     <div class="col-md-2 col-sm-2 bg-bar">
                         <strong class="subnav-header">{{ $category->name }}</strong>
@@ -64,7 +64,7 @@
                 <a href="#" data-toggle="li">分类</a>
                 <div class="subnav-wrapper">
                     <ul class="subnav">
-                        @foreach($data['categories'] as $category)
+                        @foreach($categories as $category)
                             @if($category->parent_id == 0)
                                 <li>
                                     <a href="#">{{ $category->name }}</a>

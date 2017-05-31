@@ -6,34 +6,10 @@
         <div class="col-md-9 col-lg-9">
             <div class="row">
                 <div class="col-md-4 col-lg-4 md-pull-right">
-                    <aside class="widget">
-                        <h3 class="widget-title ribbon ribbon-focus"><span>Latest Discussion</span></h3>
-                        <ul class="entries">
-                            <li class="entry style-recent-list type-post">
-                                <span class="comments-count-balloon">900</span>
-                                <a href="single.html" rel="bookmark" class="entry-title">Ullamco laboris nisi ut aliquip ex ea commodo consequat.</a>
-                            </li>
-                            <li class="entry style-recent-list type-post">
-                                <span class="comments-count-balloon">860</span>
-                                <a href="single.html" rel="bookmark" class="entry-title">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</a>
-                            </li>
-                            <li class="entry style-recent-list type-post">
-                                <span class="comments-count-balloon">1234</span>
-                                <a href="single.html" rel="bookmark" class="entry-title">In voluptate velit esse cillum dolore eu fugiat nulla pariatur.</a>
-                            </li>
-                            <li class="entry style-recent-list type-post">
-                                <span class="comments-count-balloon">90</span>
-                                <a href="single.html" rel="bookmark" class="entry-title">Duis aute irure dolor in reprehenderit.</a>
-                            </li>
-                            <li class="entry style-recent-list type-post">
-                                <span class="comments-count-balloon">8</span>
-                                <a href="single.html" rel="bookmark" class="entry-title">Utempor incididunt ut labore et dolore magna aliqua.</a>
-                            </li>
-                        </ul>
-                    </aside><!--/.widget-->
+                    @include('shared.new')
 
                     <aside class="widget widget_calendar">
-                        <h3 class="widget-title ribbon"><span>Calendar</span></h3>
+                        <h3 class="widget-title ribbon"><span>日历</span></h3>
                         <div id="calendar_wrap">
                             <table id="wp-calendar">
                                 <caption id="year_month"></caption>
@@ -66,16 +42,16 @@
                 <div class="bg-base col-md-8 col-lg-8">
                     <h2 class="section-title ribbon ribbon-highlight"><span>热门</span></h2>
                     <div class="entries">
-                        @foreach($data['articles'] as $article)
+                        @foreach($data['hot_articles'] as $article)
                         <article class="entry style-large type-post">
                             <header class="entry-header">
                                 <h3 class="entry-title">
                                     <a href="single.html" rel="bookmark">{{ $article->title }}</a>
                                 </h3>
                                 <div class="entry-meta">
-                                    <span class="author">by <a href="blog.html">{{ $article->author }}</a></span>
-                                    <span class="entry-date"><a href="blog.html">on <time datetime="2013-07-04T23:26:34+00:00">{{ $article->created_at }}</time></a></span>
-                                    <span class="category">In <a href="blog.html">{{ $article->category->name }}</a></span>
+                                    <span class="author">by <a href="javascript:void(0);">{{ $article->author }}</a></span>
+                                    <span class="entry-date"><a href="javascript:void(0);">on <time datetime="2013-07-04T23:26:34+00:00">{{ $article->created_at }}</time></a></span>
+                                    <span class="category">In <a href="">{{ $article->category->name }}</a></span>
                                 </div>
                             </header>
                             <p>
@@ -90,326 +66,62 @@
         <div class="sidebar col-md-3 col-lg-3">
             <div class="collapsible-widgets">
                 <aside class="widget">
-                    <h2 class="widget-title ribbon"><span>Top Smartphone</span></h2>
-
+                    <h2 class="widget-title ribbon"><span>分类比列</span></h2>
                     <ul class="entries">
+                        @foreach($data['categories'] as $category)
+                        @if($category->parent_id == 0)
                         <li class="entry style-score-widget">
-                            <div class="score-label entry-title"><a href="single-full.html">xPhone 15s</a></div>
+                            <div class="score-label entry-title"><a href="single-full.html"></a></div>
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 81%;">
-                                    <span>Score:&nbsp;81</span>
+                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ intval($category->articles_count / $data['articles_total_count'] * 100) }}%;">
+                                    <span>{{ $category->name }}比例:&nbsp;{{ intval($category->articles_count / $data['articles_total_count'] * 100) }}</span>
                                 </div>
                             </div>
                         </li>
-                        <li class="entry style-score-widget">
-                            <div class="score-label entry-title"><a href="single-full.html">Droid Maxxi</a></div>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
-                                    <span>Score:&nbsp;50</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="entry style-score-widget">
-                            <div class="score-label entry-title"><a href="single-full.html">Performance</a></div>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
-                                    <span>Score:&nbsp;76</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="entry style-score-widget">
-                            <div class="score-label entry-title"><a href="single-full.html">NFC Dragonfly</a></div>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
-                                    <span>Score:&nbsp;75</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="entry style-score-widget">
-                            <div class="score-label entry-title"><a href="single-full.html">Andromeda Titan</a></div>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
-                                    <span>Score:&nbsp;70</span>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </aside>
-                <aside class="widget">
-                    <h2 class="widget-title ribbon"><span>Top Notebook</span></h2>
-                    <ul class="entries">
-                        <li class="entry style-score-widget">
-                            <div class="score-label entry-title"><a href="single-full.html">xPhone 15s</a></div>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 81%;">
-                                    <span>Score:&nbsp;81</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="entry style-score-widget">
-                            <div class="score-label entry-title"><a href="single-full.html">Droid Maxxi</a></div>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
-                                    <span>Score:&nbsp;80</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="entry style-score-widget">
-                            <div class="score-label entry-title"><a href="single-full.html">Performance</a></div>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
-                                    <span>Score:&nbsp;76</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="entry style-score-widget">
-                            <div class="score-label entry-title"><a href="single-full.html">NFC Dragonfly</a></div>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
-                                    <span>Score:&nbsp;75</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="entry style-score-widget">
-                            <div class="score-label entry-title"><a href="single-full.html">Andromeda Titan</a></div>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
-                                    <span>Score:&nbsp;70</span>
-                                </div>
-                            </div>
-                        </li>
+                        @endif
+                        @endforeach
                     </ul>
                 </aside>
             </div>
-            <aside class="widget">
-                <h3 class="widget-title ribbon ribbon-focus"><span>标签</span></h3>
-                <div class="tagcloud">
-                    @foreach($data['tags'] as $tag)
-                    <a href="#">{{ $tag->name }}</a>
-                    @endforeach
-                </div>
-            </aside><!--/.widget-->
+            @include('shared.tags')
         </div><!--/.sidebar.col-md-3.col-lg-3-->
     </div><!--/.row.content-->
     <div id="coverageCarousel" class="section bg-primary carousel carousel slide">
         <h2 class="section-title ribbon ribbon-highlight"><span>&nbsp;</span></h2>
         <div class="carousel-inner">
             <div class="item active">
-                <h2 class="section-title ribbon ribbon-highlight"><a href="blog.html"> xPhone launch event</a></h2>
+                <h2 class="section-title ribbon ribbon-highlight"><a href="blog.html"> 博客</a></h2>
                 <div class="row entries">
+                    @foreach($data['random_one_articles'] as $article)
                     <article class="entry style-grid type-post col-md-6 col-lg-3 colheight-sm-1">
                         <header class="entry-header">
-                            <p class="small"><a href="blog.html">Review</a></p>
-                            <h3 class="entry-title"><a href="single.html">xPhone first hand: Check out, this might be the right phone for you</a> </h3>
+                            <p class="small"><a href="blog.html">{{ $article->title }}</a></p>
+                            <h3 class="entry-title"><a href="single.html">{!! str_limit(strip_tags($article->content), '100', '...') !!}</a> </h3>
                             <div class="entry-meta">
-                                <span class="entry-date"><a href="blog.html"><time datetime="2013-07-04T23:26:34+00:00">20 hours ago</time></a></span>
-                                <span class="entry-author"> by <a href="blog.html">John Doe</a></span>
+                                <span class="entry-date"><a href="blog.html"><time datetime="2013-07-04T23:26:34+00:00">{{ $article->created_at }}</time></a></span>
+                                <span class="entry-author"> by <a href="blog.html">{{ $article->author }}</a></span>
                             </div>
                         </header>
-                        <figure class="entry-thumbnail">
-                            <a href="single.html" class="overlay overlay-primary"></a>
-                            <!-- to disable lazy loading, remove data-src and data-src-retina -->
-                            <img src="../img/placeholder.gif" data-src="http://placehold.it/480x280" data-src-retina="http://placehold.it/720x420" width="480" height="280" alt="">
-                            <!--fallback for no javascript browsers-->
-                            <noscript>
-                                <img src="http://placehold.it/480x280" alt="">
-                            </noscript>
-                        </figure>
                     </article>
-                    <article class="entry style-grid type-post col-md-6 col-lg-3 colheight-sm-1">
-                        <header class="entry-header">
-                            <p class="small"><a href="blog.html">Event Report</a></p>
-                            <h3 class="entry-title"><a href="single.html">The rumor was not a joke, lorem ispsum dolor sit amet constactetiour.</a> </h3>
-                            <div class="entry-meta">
-                                <span class="entry-date"><a href="blog.html"><time datetime="2013-07-04T23:26:34+00:00">20 hours ago</time></a></span>
-                                <span class="entry-author"> by <a href="blog.html">John Doe</a></span>
-                            </div>
-                        </header>
-                        
-                        <figure class="entry-thumbnail">
-
-                            <a href="single.html" class="overlay overlay-primary"></a>
-
-                            <!-- to disable lazy loading, remove data-src and data-src-retina -->
-                            <img src="../img/placeholder.gif" data-src="http://placehold.it/680x452" data-src-retina="http://placehold.it/1024x680" width="680" height="452" alt="">
-
-                            <!--fallback for no javascript browsers-->
-                            <noscript>
-                                <img src="http://placehold.it/680x452" alt="">
-                            </noscript>
-
-                        </figure>
-
-                    </article>
-
-                    <article class="entry style-grid type-post col-md-6 col-lg-3 colheight-sm-1">
-                        <header class="entry-header">
-                            <p class="small"><a href="blog.html">Event Report</a></p>
-                            <h3 class="entry-title"><a href="single.html">The Event is starting Now. Grab your popcorn, beer and notes.</a> </h3>
-                            <div class="entry-meta">
-                                <span class="entry-date"><a href="blog.html"><time datetime="2013-07-04T23:26:34+00:00">20 hours ago</time></a></span>
-                                <span class="entry-author"> by <a href="blog.html">John Doe</a></span>
-                            </div>
-                        </header>
-                        
-                        <figure class="entry-thumbnail">
-
-                            <a href="single.html" class="overlay overlay-primary"></a>
-
-                            <!-- to disable lazy loading, remove data-src and data-src-retina -->
-                            <img src="../img/placeholder.gif" data-src="http://placehold.it/480x280" data-src-retina="http://placehold.it/720x420" width="480" height="280" alt="">
-
-                            <!--fallback for no javascript browsers-->
-                            <noscript>
-                                <img src="http://placehold.it/480x280" alt="">
-                            </noscript>
-
-                        </figure>
-
-                    </article>
-
-                    <article class="entry style-grid type-post col-md-6 col-lg-3 colheight-sm-1">
-                        <header class="entry-header">
-                            <p class="small"><a href="blog.html">Speculation</a></p>
-                            <h3 class="entry-title"><a href="single.html">Rumor: The long awaited update for Retina Display is ready to be annaunced on the next event held by them</a> </h3>
-                            <div class="entry-meta">
-                                <span class="entry-date"><a href="blog.html"><time datetime="2013-07-04T23:26:34+00:00">20 hours ago</time></a></span>
-                                <span class="entry-author"> by <a href="blog.html">John Doe</a></span>
-                            </div>
-                        </header>
-                        
-                        <figure class="entry-thumbnail">
-
-                            <a href="single.html" class="overlay overlay-primary"></a>
-
-                            <!-- to disable lazy loading, remove data-src and data-src-retina -->
-                            <img src="../img/placeholder.gif" data-src="http://placehold.it/480x280" data-src-retina="http://placehold.it/720x420" width="480" height="280" alt="">
-
-                            <!--fallback for no javascript browsers-->
-                            <noscript>
-                                <img src="http://placehold.it/480x280" alt="">
-                            </noscript>
-
-                        </figure>
-
-                    </article>
-
+                    @endforeach
                 </div><!--/.row.entries-->
-
             </div><!--/.item-->
             <div class="item">
-                <h2 class="section-title ribbon ribbon-highlight"><a href="blog.html"> #WCDC 2013</a></h2>
-                
+                <h2 class="section-title ribbon ribbon-highlight"><a href="blog.html"> 博客</a></h2>
                 <div class="row entries">
-
+                    @foreach($data['random_two_articles'] as $article)
                     <article class="entry style-grid type-post col-md-6 col-lg-3 colheight-sm-1">
                         <header class="entry-header">
-                            <p class="small"><a href="blog.html">Event Report</a></p>
-                            <h3 class="entry-title"><a href="single.html">The Event is starting Now. Grab your popcorn, beer and notes.</a> </h3>
+                            <p class="small"><a href="blog.html">{{ $article->title }}</a></p>
+                            <h3 class="entry-title"><a href="single.html">{!! str_limit(strip_tags($article->content), '100', '...') !!}</a> </h3>
                             <div class="entry-meta">
-                                <span class="entry-date"><a href="blog.html"><time datetime="2013-07-04T23:26:34+00:00">20 hours ago</time></a></span>
-                                <span class="entry-author"> by <a href="blog.html">John Doe</a></span>
+                                <span class="entry-date"><a href="blog.html"><time datetime="2013-07-04T23:26:34+00:00">{{ $article->created_at }}</time></a></span>
+                                <span class="entry-author"> by <a href="blog.html">{{ $article->author }}</a></span>
                             </div>
                         </header>
-                        
-                        <figure class="entry-thumbnail">
-
-                            <a href="single.html" class="overlay overlay-primary"></a>
-
-                            <!-- to disable lazy loading, remove data-src and data-src-retina -->
-                            <img src="../img/placeholder.gif" data-src="http://placehold.it/480x280" data-src-retina="http://placehold.it/720x420" width="480" height="280" alt="">
-
-                            <!--fallback for no javascript browsers-->
-                            <noscript>
-                                <img src="http://placehold.it/480x280" alt="">
-                            </noscript>
-
-                        </figure>
-
                     </article>
-
-                    <article class="entry style-grid type-post col-md-6 col-lg-3 colheight-sm-1">
-                        <header class="entry-header">
-                            <p class="small"><a href="blog.html">Speculation</a></p>
-                            <h3 class="entry-title"><a href="single.html">Rumor: The long awaited update for Retina Display is ready to be annaunced on the next event held by them</a> </h3>
-                            <div class="entry-meta">
-                                <span class="entry-date"><a href="blog.html"><time datetime="2013-07-04T23:26:34+00:00">20 hours ago</time></a></span>
-                                <span class="entry-author"> by <a href="blog.html">John Doe</a></span>
-                            </div>
-                        </header>
-                        
-                        <figure class="entry-thumbnail">
-
-                            <a href="single.html" class="overlay overlay-primary"></a>
-
-                            <!-- to disable lazy loading, remove data-src and data-src-retina -->
-                            <img src="../img/placeholder.gif" data-src="http://placehold.it/480x280" data-src-retina="http://placehold.it/720x420" width="480" height="280" alt="">
-
-                            <!--fallback for no javascript browsers-->
-                            <noscript>
-                                <img src="http://placehold.it/480x280" alt="">
-                            </noscript>
-
-                        </figure>
-
-                    </article>
-
-                    <article class="entry style-grid type-post col-md-6 col-lg-3 colheight-sm-1">
-                        
-                        <header class="entry-header">
-                            <p class="small"><a href="blog.html">Review</a></p>
-                            <h3 class="entry-title"><a href="single.html">xPhone first hand: Check out, this might be the right phone for you</a> </h3>
-                            <div class="entry-meta">
-                                <span class="entry-date"><a href="blog.html"><time datetime="2013-07-04T23:26:34+00:00">20 hours ago</time></a></span>
-                                <span class="entry-author"> by <a href="blog.html">John Doe</a></span>
-                            </div>
-                        </header>
-                        
-                        <figure class="entry-thumbnail">
-
-                            <a href="single.html" class="overlay overlay-primary"></a>
-
-                            <!-- to disable lazy loading, remove data-src and data-src-retina -->
-                            <img src="../img/placeholder.gif" data-src="http://placehold.it/480x280" data-src-retina="http://placehold.it/720x420" width="480" height="280" alt="">
-
-                            <!--fallback for no javascript browsers-->
-                            <noscript>
-                                <img src="http://placehold.it/480x280" alt="">
-                            </noscript>
-
-                        </figure>
-
-                    </article>
-
-                    <article class="entry style-grid type-post col-md-6 col-lg-3 colheight-sm-1">
-
-                        <header class="entry-header">
-                            <p class="small"><a href="blog.html">Event Report</a></p>
-                            <h3 class="entry-title"><a href="single.html">The rumor was not a joke, lorem ispsum dolor sit amet constactetiour.</a> </h3>
-                            <div class="entry-meta">
-                                <span class="entry-date"><a href="blog.html"><time datetime="2013-07-04T23:26:34+00:00">20 hours ago</time></a></span>
-                                <span class="entry-author"> by <a href="blog.html">John Doe</a></span>
-                            </div>
-                        </header>
-                        
-                        <figure class="entry-thumbnail">
-
-                            <a href="single.html" class="overlay overlay-primary"></a>
-
-                            <!-- to disable lazy loading, remove data-src and data-src-retina -->
-                            <img src="../img/placeholder.gif" data-src="http://placehold.it/680x452" data-src-retina="http://placehold.it/1024x680" width="680" height="452" alt="">
-
-                            <!--fallback for no javascript browsers-->
-                            <noscript>
-                                <img src="http://placehold.it/680x452" alt="">
-                            </noscript>
-
-                        </figure>
-
-                    </article>
-
+                    @endforeach
                 </div><!--/.row.entries-->
-
             </div><!--/.item-->
         </div><!--/.carousel-inner-->
 

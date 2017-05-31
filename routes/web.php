@@ -11,6 +11,7 @@
 |
 */
 Route::get('/', 'HomeController@index');
+Route::get('blog/{id}', 'BlogController@show');
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function(){
     Route::get('signin', 'SignController@index')->name('admin_signin');

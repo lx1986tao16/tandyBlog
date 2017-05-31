@@ -4,14 +4,11 @@
             <div class="widget col-xs-12 col-sm-4">
                 <h4 class="widget-title">Categories</h4>
                 <ul class="entries links links-2-cols">
-                    <li><a href="blog.html">Entertainment</a></li>
-                    <li><a href="blog.html">Event</a></li>
-                    <li><a href="blog.html">Technology</a></li>
-                    <li><a href="blog.html">Social Media</a></li>
-                    <li><a href="blog.html">Tactical</a></li>
-                    <li><a href="reviews.html">Notebook</a></li>
-                    <li><a href="reviews.html">Smartphone</a></li>
-                    <li><a href="reviews.html">Tablet</a></li>
+                    @foreach($categories as $category)
+                    @if($category->parent_id == 0)
+                    <li><a href="blog.html">{{ $category->name }}</a></li>
+                    @endif
+                    @endforeach
                 </ul>
             </div><!--/.col-3-->
             <div class="clearfix visible-xs"></div>
@@ -24,28 +21,19 @@
                     <li><a href="#">Terms &amp; Conditions</a></li>
                     <li><a href="#">Privacy</a></li>
                 </ul>
-
             </div><!--/.col-3-->
-
             <div class="widget col-xs-6 col-sm-2">
-
                 <h4 class="widget-title">Follow Us</h4>
-
                 <ul class="entries links">
                     <li><a href="blog.html"><i class="icon-facebook-sign icon-2x"></i> Facebook</a></li>
                     <li><a href="blog.html"><i class="icon-twitter-sign icon-2x"></i> Twitter</a></li>
                     <li><a href="blog.html"><i class="icon-google-plus-sign icon-2x"></i> Google Plus</a></li>
                     <li><a href="blog.html"><i class="icon-linkedin-sign icon-2x"></i> Linkedin</a></li>
                 </ul>
-
             </div><!--/.col-3-->
-
             <div class="clearfix visible-xs"></div>
-
             <div class="widget col-xs-12 col-sm-4">
-
                 <h4 class="widget-title">Subscribe</h4>
-
                 <form class="form-horizontal" role="form">
                     <div class="form-group">
                         <label for="subscribeEmail" class="col-lg-2 control-label">EMAIL</label>

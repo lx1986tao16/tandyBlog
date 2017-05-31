@@ -178,7 +178,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         'Douyasi\Editor\EditorServiceProvider',
 
-        App\Providers\BackendServiceProvider::class
+        App\Providers\BackendServiceProvider::class,
+        App\Providers\CommonServiceProider::class
     ],
 
     /*
